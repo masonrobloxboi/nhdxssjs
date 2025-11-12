@@ -1,47 +1,5 @@
-<script>
 document.addEventListener("keydown", function(event) {
-  if (event.key === "m") {
-    document.open();
-    document.write(`
-<!DOCTYPE html>
-<html>
-  <body>
-    <input id="url" value="https://google.com/?igu=1" placeholder="Enter a URL" style="width: 300px;" />
-    <button id="openBtn">Open unbl0cked tab!</button>
-
-    <script>
-      function opentab() {
-        const url = document.getElementById('url').value;
-        if (!url) return alert('Please enter a URL.');
-        const win = window.open('about:blank');
-        if (!win) return alert('Popup blocked!');
-        win.document.write(\`<!DOCTYPE html>
-<html>
-<head>
-<style>
-html, body, embed {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-  overflow: hidden;
-}
-</style>
-</head>
-<body>
-  <embed src="\${url}" type="text/html"></embed>
-</body>
-</html>\`);
-        win.document.close();
-      }
-
-      document.getElementById('openBtn').addEventListener('click', opentab);
-    <\/script>
-  </body>
-</html>
-    `);
-    document.close();
+  if (event.key === "r") {
+    document.open();document.write("<!DOCTYPE html>\r\n<html>\r\n  <body>\r\n    <input id=\"url\" value=\"https:\/\/google.com\/?igu=1\" placeholder=\"Enter a URL\" style=\"width: 300px;\" \/>\r\n    <button onclick=\"opentab()\">Open unbl0cked tab!<\/button>\r\n    <script>\r\n      function opentab() {\r\n        const url = document.getElementById('url').value;\r\n        if (!url) return alert('Please enter a URL.');\r\n        const win = window.open('about:blank');\r\n        if (!win) return alert('Popup blocked!');\r\n        win.document.write(`<!DOCTYPE html>\r\n<html>\r\n<head>\r\n<style>\r\nhtml, body, embed {\r\n  margin: 0;\r\n  padding: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  border: none;\r\n  overflow: hidden;\r\n}\r\n<\/style>\r\n<\/head>\r\n<body>\r\n  <embed src=\"${url}\" type=\"text\/html\"><\/embed>\r\n<\/body>\r\n<\/html>`);\r\n      }\r\n    <\/script>\r\n  <\/body>\r\n<\/html>");document.close();
   }
 });
-</script>
